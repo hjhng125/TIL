@@ -6,6 +6,8 @@
 >
 > 최초에 유량을 발생시켜 다른 정점으로 보내는 것은 Source 뿐이며 Sink를 제외한 이외의 정점들은 받은 만큼의 유량만 보낼 수 있다.
 
+
+
 ### 용어 정리
 
 * Source : 시작 정점
@@ -41,4 +43,78 @@
 > 이 알고리즘은 경로를 찾을 때 BFS 방식을 사용하는데 BFS는 증가 경로를 VE번 이상 찾지 않는다는 것이 증명되었으므로 네트워크 유량 문제는 BFS를 사용한 애드몬드 카프알고리즘을 사용하는 것이 좋다.
 >
 > * 시간복잡도 : O(VE<sup>2</sup>)
-
+>   - 증가 경로를 찾는 과정 O(E) 
+>   - Sink로 도달하는 증가경로를 찾는 과정 O(VE)
+>
+> ```
+> #include<cstdio>
+> #include<vector>
+> #include<queue>
+> #include<algorithm>
+> 
+> #define MAX 2002
+> #define S 0
+> #define T n + m + 1
+> using namespace std;
+> 
+> int c[MAX][MAX];
+> int n, m;
+> int num;
+> vector<vector<int> > adj;
+> queue<int> q;
+> int main()
+> {
+> 	scanf("%d %d", &n, &m);
+> 	adj.resize(T + 1);
+> 	for (int i = 1; i <= n; ++i) {
+> 		scanf("%d", &num);
+> 		for (int j = 1; j <= num; ++j) {
+> 			int a;
+> 			scanf("%d", &a);
+> 			adj[i].push_back(n + a);
+> 			adj[n + a].push_back(i);
+> 			c[i][n + a] = 1;
+> 		}
+> 	}
+> 	for (int i = 1; i <= n; ++i) {
+> 		c[S][i] = 2;
+> 		adj[S].push_back(i);
+> 		adj[i].push_back(S);
+> 	}
+> 	for (int i = n + 1; i <= n + m; ++i) {
+> 		c[i][T] = 1;
+> 		adj[i].push_back(T);
+> 		adj[T].push_back(i);
+> 	}
+> 	int ans = 0;
+> 	while (1) {
+> 		int prev[MAX];
+> 
+> 		fill(prev, prev + T + 1, -1);
+> 		q.push(S);
+> 		while (!q.empty()) {
+> 			int here = q.front();
+> 			q.pop();
+> 			for (int next : adj[here]) {
+> 				//여기서 prev는 visit 과 같은 역할을 한다.
+> 				if (c[here][next] > 0 && prev[next] == -1) {
+> 					q.push(next);
+> 					prev[next] = here;
+> 					if (next == T)
+> 						break;
+> 				}
+> 			}
+> 		}
+> 		if (prev[T] == -1)
+> 			break;
+> 		ans++;
+> 		for (int i = T; i != S; i = prev[i]) {
+> 			c[prev[i]][i]--;
+> 			c[i][prev[i]]++;
+> 		}
+> 	}
+> 	printf("%d\n",ans);
+> }
+> ```
+>
+> * BOJ 11376(열혈강호2) 문제 
