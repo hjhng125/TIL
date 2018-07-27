@@ -66,7 +66,7 @@
 >
 >   * Attribute Starts With Selector :  특정 단어로 시작하는 속성값. [attribute ^= "value"]
 >   * Attribute Ends With Selector : 특정 단어로 끝나는 속성값. [attribute $= "value"]
->   * Attribute Wildcard Selector : 특정 단어를 포함하는 속성값. [attibute *- "value"]
+>   * Attribute Wildcard Selector : 특정 단어를 포함하는 속성값. [attibute *= "value"]
 
 ### CSS Selector & Web Crawling
 
