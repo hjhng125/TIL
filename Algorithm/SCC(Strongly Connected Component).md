@@ -15,8 +15,8 @@
 >3.  SCC는 Maximal한 성질을 가지고 있어서 SCC가 형성된다면 형성될 수 있는 가장 큰 집합으로 형성된다.
 
 
-
-### Source code & Sequence
+### Tarjan's Algorithm
+ * Source code & Sequence
 
 >```
 >int v, e, cnt, sccNum;
