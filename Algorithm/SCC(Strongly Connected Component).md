@@ -1,4 +1,4 @@
-# SCC(Strongly Connected Component)
+# SCC(1)
 
 > SCC란 방향 그래프에서 임의의 두 정점 u, v가 있을 때, u -> v 로 가는 경로가 존재한다면 그 그룹은 SCC이다. 이 때의 경로는 직/ 간접적 경로를 모두 포함한다.
 
