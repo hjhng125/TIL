@@ -1,4 +1,4 @@
-# SCC(Strongly Connected Component)
+# SCC(1)
 
 > SCC란 방향 그래프에서 임의의 두 정점 u, v가 있을 때, u -> v 로 가는 경로가 존재한다면 그 그룹은 SCC이다. 이 때의 경로는 직/ 간접적 경로를 모두 포함한다.
 
@@ -15,8 +15,8 @@
 >3.  SCC는 Maximal한 성질을 가지고 있어서 SCC가 형성된다면 형성될 수 있는 가장 큰 집합으로 형성된다.
 
 
-
-### Source code & Sequence
+### Tarjan's Algorithm
+ * Source code & Sequence
 
 >```
 >int v, e, cnt, sccNum;
