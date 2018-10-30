@@ -43,10 +43,10 @@
 > case: a > b - Suppose d = gcd(a, b). 
 >
 > ​			if b = 0, then d = a. 
->
-> ![image](C:\Users\HJH\Documents\GitHub\TIL\Algorithm\image.PNG)
 
-[github/hjhng125](https://github.com/hjhng125/Algorithm/blob/master/GC_Algorithm/Euclid's%20Algorithm.cpp)
+
+
+Source code :  [github/hjhng125](https://github.com/hjhng125/Algorithm/blob/master/GC_Algorithm/Euclid's%20Algorithm.cpp)
 
 
 
