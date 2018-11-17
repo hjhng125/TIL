@@ -2,9 +2,7 @@
 
 > Consistency models는 시스템에서 일관성을 유지하기 위한 규약이다.
 >
-> ``` 
-> Data-centric consistency models는 데이터 저장소 관점에서 시스템 전반의 일관성 제공을 목표로 한다. 이는 앞서 기술할 Client-centic consistency models 보다 tight한 정책으로 내부 절차가 더욱 복잡하다.
-> ```
+> * Data-centric consistency models는 데이터 저장소 관점에서 시스템 전반의 일관성 제공을 목표로 한다. 이는 앞서 기술할 Client-centic consistency models 보다 tight한 정책으로 내부 절차가 더욱 복잡하다.
 
 
 
@@ -30,16 +28,17 @@
 >
 >   ```
 >   1. Database systems - 대부분의 작업이 read이며, 적은 수의 process만 업데이트를 한다.
->   2. Web cache server, browser cache - webmaster에 의해서만 업데이트되며 구식 웹 페이지(특정 정도까지)는 허용 가능하다.
+>   2. Web cache server, browser cache
+>   - webmaster에 의해서만 업데이트되며 구식 웹 페이지(특정 정도까지)는 허용 가능하다.
 >   ```
 >
 > 
 >
 > * Client가  항상 동일한 복제본에 접근하는 한 eventual consistency는 문제 없다. 하지만 단기간에 여러 복제본에 접근한다면 문제가 발생한다.
 >
->   ```
->   모바일 디바이스에서 데이터베이스에 접근하여 하나의 복사본의 업데이트를 실행하였다고 가정하자. 이후에 다른 네트워크에서 다른 디바이스로 데이터베이스에 접근하였다. 이럴 경우 다른 복제본에 연결할 것이다. 이 때 업데이트가 네트워크상에 전파가 다 된 후가 아니라면 업데이트의 이전 자료를 확인할 수 있을 것이다.
->   ```
+>   * 모바일 디바이스에서 데이터베이스에 접근하여 하나의 복사본의 업데이트를 실행하였다고 가정하자. 이후에 다른 네트워크에서 다른 디바이스로 데이터베이스에 접근하였다. 이럴 경우 다른 복제본에 연결할 것이다. 이 때 업데이트가 네트워크상에 전파가 다 된 후가 아니라면 업데이트의 이전 자료를 확인할 수 있을 것이다.
+>
+>     
 >
 > * Client-centric consistency model은 단일 클라이언트의 다른 복제본 접근과 서로 다른 클라이언트의 update를 지원하지 않기 때문에 고안된 4가지 Model이 있다.
 
