@@ -49,6 +49,7 @@
 > 만약 한 클라이언트가 x라는 데이터를 읽었다고 했을 때, x에 대한 어떤 연속적인 read operation이던 간에 해당 클라이언트는 같은 값이거나 더욱 최신인 x값을 받는다. 
 >
 > - Monotonic read consistency는 절대 이전의 x 값을 보여주지 않는다.
+> - Ex) E-mail server
 
 
 
@@ -67,12 +68,7 @@
 > 한 클라이언트에 의한 데이터 x의 write operation는 동일한 클라이언트의 연속적인 read operation에 의해서 항상 보여져야 한다.
 >
 > * write operation은  read operation이 어디서 일어나는 가에 관계없이 동일한 프로세스에 의한 연속적인 read operation 전에 항상 완료된다.
->
-> * Read-your-write와 monotonic read :
->
->   전자는 동일한 클라이언트의 최신값을 read하는 것을 보장
->
->   후자는 다른 클라이언트에 의한 최신값 또한 보장
+> - Ex) Web page(Server vs Cache)
 
 
 
