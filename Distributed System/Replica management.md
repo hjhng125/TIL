@@ -132,4 +132,19 @@
 >     * 수정되지 않은 경우 캐시된 데이터가 바로 리턴된다.
 >   * read-write ratio가 낮은 경우 효율적이다.
 >     * 단일 클라이언트 캐시인 경우이거나 캐시기반 데이터의 공유가 거의 없는 경우
+>
 >     * 캐시 미스의 경우 Response time이 길어질 수 있다. 
+>
+>       
+>
+> * Comparing push and pull
+>
+>   * 서버의 상태 
+>     * push-based : 클라이언트의 복제와 캐쉬의 리스트를 추적해야 한다. overhead 발생 가능
+>     * pull-based : x
+>   * 보내는 메세지
+>     * push-based : 모든 클라이언트에게 update 메세지를 보낸다. update가 무효화되는 경우 수정된 데이터를 가져오기 위한 추가적인 통신이 필요하다.
+>     * pull-based : 클라이언트가 서버를 polling 해야한다. 필요한 경우 수정된 데이터를 요청해서 가져온다.
+>   * 클라이언트의 응답 시간 
+>     * push-based : 즉시 업데이트된다. or fetch-update time(update가 무효화되는 겨우)
+>     * pull-based : fetch-update time(클라이언트가 요청해서 가져오는 시간)
