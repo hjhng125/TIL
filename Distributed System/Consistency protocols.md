@@ -92,7 +92,7 @@
 >
 > Implementing monotonic-read consistency
 >
-> 1. 클라이언트가 쓰기 작업을 하려할 때 서버로 read set을 보낸다.
+> 1. 클라이언트가 읽기 작업을 하려할 때 서버로 read set을 보낸다.
 > 2. 서버는 이 read set을 보고 모든 write가 로컬에 수행되었는지 확인한다.
 > 3. 그렇지 않다면 서버는 다른 서버에 contact하여 누락된 쓰기 작업과 관련된 로그정보를 받아와 클라이언트에게 보여주거나 클라이언트에게 최신화된 서버를 알려준다.
 > 4. read를 수행한 후, read-set을 최신화한다.
