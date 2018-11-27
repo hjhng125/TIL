@@ -40,6 +40,10 @@
 >
 >         데이터를 못받은 receiver들은 NACK을 sender에게 보내주어야 한다. 하지만 재전송이 항상 전체 그룹에 멀티태스킹 된다면, 재전송에 대한 feedback이 하나여도 충분하다. 따라서 receiver들은 임의의 지연을 갖는 피드백 메세지를 스케쥴링한다. 이렇게 되면 제일 처음 하나의 NACK이 sender에게 도착한다. 그러면 하나의 NACK만으로 모두가 재전송을 받게되어 implosion이 방지된다.
 >
+>       * problem : interrupt successful receivers 
+>
+>         메세지를 성공적으로 받은 receiver가 쓸모없는 메세지를 수신하고 처리해야한다.
+>
 >     * *Hierarchical Feedback Control*
 >
 >       * 그룹을 서브그룹으로 나눈다 - 서브그룹을 하나의 노드라고 생각한다.
