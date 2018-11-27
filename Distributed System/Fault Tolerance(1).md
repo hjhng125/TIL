@@ -133,7 +133,7 @@
 >   * *Hierarchical groups* 
 >
 >     * 그룹내에 coordinator가 존재하여 다른 프로세스를 관리한다.
->     * 이것은 효율적이지만 coordinator가 망가지면 그룹이 동작을 못한다.
+>     * 이것은 효율적이지만 coordinator가 망가지면 그룹이 동작을 못한다.(not fault tolerance)
 >     * coordinator가 망가질 경우 election을 통해 새로운 coordinator를 선정한다.
 >
 >   
