@@ -70,3 +70,32 @@
 >     * 이를 만족하지 않다면 write-write 충돌이 발생할 수 있다. (voting problem)
 >   * ROWA(Read-One, Write-All) 
 >     * N(R)이 1이고, N(W)가 all 이다.  - 모두 업데이트를 해야해서 비용이 많이든다.
+
+
+
+### Client-centric consistency 
+
+> 각각의 쓰기 작업은 global-unique ID를 할당받는다.
+>
+> * ID는 지역적으로 생성된다. (각기 다른 로컬에서 접근하므로)
+>   * Lamport time stamp + processor number
+> * ID는 해당 로컬 서버에 의해 할당된다.
+>
+> 
+>
+> 각 클라이언트는 두개의 set을 가지고 있다.
+>
+> * read set : 쓰기 작업들 중 자신의 read 작업과 관련된 것.
+> * write set : 클라이언트가 수행한 쓰기 작업.
+>
+> 
+>
+> Implementing monotonic-read consistency
+>
+> 1. 클라이언트가 쓰기 작업을 하려할 때 서버로 read set을 보낸다.
+> 2. 서버는 이 read set을 보고 모든 write가 로컬에 수행되었는지 확인한다.
+> 3. 그렇지 않다면 서버는 다른 서버에 contact하여 누락된 쓰기 작업과 관련된 로그정보를 받아와 클라이언트에게 보여주거나 클라이언트에게 최신화된 서버를 알려준다.
+> 4. read를 수행한 후, read-set을 최신화한다.
+> 5. Algorithm에 필요한것
+>    * write-id는 write를 하는 서버의 id를 포함
+>    * write의 순서는 램포트다임스탬프에 저장된다.
